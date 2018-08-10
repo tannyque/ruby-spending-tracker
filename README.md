@@ -15,5 +15,5 @@ create_db spending-tracker
 bundle install
 rake db:build
 rake db:seed
-ruby app.rb
+shotgun
 ```
