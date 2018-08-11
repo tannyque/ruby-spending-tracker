@@ -20,4 +20,8 @@ class Tag
       .run(sql)
       .map { |tag| Tag.new(tag) }
   end
+
+  def self.delete_all
+    SqlRunner.run('DELETE FROM tags')
+  end
 end

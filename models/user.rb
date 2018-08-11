@@ -20,6 +20,12 @@ class User
       .map { |user| User.new(user) }
   end
 
+  def self.find_by_id(id)
+    sql = 'SELECT * FROM users WHERE id = $1'
+    user = SqlRunner.run(sql, [id])
+    user.count.zero? ? nil : User.new(user.first)
+  end
+
   def self.delete_all
     SqlRunner.run('DELETE FROM users')
   end

@@ -9,3 +9,8 @@ get '/' do
   @users = User.all
   erb :home
 end
+
+get '/users/:id' do
+  @user = User.find_by_id(params['id'])
+  erb :user
+end
