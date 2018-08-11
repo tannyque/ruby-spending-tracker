@@ -13,7 +13,6 @@ Category.delete_all
 User.delete_all
 Merchant.delete_all
 
-
 user1 = User.new('name' => 'Catherine')
 user2 = User.new('name' => 'Dave')
 user1.save
@@ -41,6 +40,16 @@ categories = Category.all
     'merchant_id' => merchants.sample.id
   )
   transaction.save
+end
+
+transactions = Transaction.all
+
+40.times do
+  tag = Tag.new(
+    'category_id' => categories.sample.id,
+    'transaction_id' => transactions.sample.id
+  )
+  tag.save
 end
 
 binding.pry

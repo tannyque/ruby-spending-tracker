@@ -13,6 +13,12 @@ class Category
     @id = SqlRunner.run(sql, [@name]).first['id']
   end
 
+  def update
+    sql = 'UPDATE categories SET name = $1 WHERE id = $2'
+    values = [@name, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.all
     sql = 'SELECT * FROM categories'
     SqlRunner
