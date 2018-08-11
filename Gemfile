@@ -6,4 +6,5 @@ source 'https://rubygems.org' do
   gem 'rake', '~> 10.4', '>= 10.4.2'
   gem 'shotgun', '~> 0.9.2'
   gem 'sinatra', '~> 1.4', '>= 1.4.7'
+  gem 'sinatra-contrib', '~> 1.4', '>= 1.4.6'
 end

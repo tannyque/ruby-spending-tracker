@@ -6,8 +6,6 @@ require_relative '../models/transaction'
 require 'pry-byebug'
 require 'rake'
 
-sh 'rake db:build'
-
 user1 = User.new('name' => 'Catherine')
 user2 = User.new('name' => 'Dave')
 user1.save
@@ -37,5 +35,5 @@ categories = Category.all
   transaction.save
 end
 
-binding.pry
-nil
+# binding.pry
+# nil
