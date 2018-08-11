@@ -22,6 +22,10 @@ class User
       .map { |transaction| Transaction.new(transaction) }
   end
 
+  def transaction_value
+    transactions.sum(&:amount)
+  end
+
   def self.all
     sql = 'SELECT * FROM users'
     SqlRunner

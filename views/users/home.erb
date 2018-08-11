@@ -4,13 +4,12 @@
 
 <h3>All Transactions</h3>
 
+<h4>Total value: £<%= @user.transaction_value %></h4>
+
 <% @transactions.each do |transaction| %>
   <p>Merchant: <%= transaction.merchant.name.capitalize %></p>
   <p>Amount: £<%= transaction.amount %></p>
   <a href="/transactions/<%= transaction.id %>">Show details</a>
   <a href="/transactions/edit/<%= transaction.id %>">Edit transaction</a>
-  <form action="/transactions/<%= transaction.id %>/delete" method="post">
-    <button type="submit">Delete transaction</button>
-  </form>
   <hr>
 <% end %>
