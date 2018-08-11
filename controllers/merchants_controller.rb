@@ -19,3 +19,14 @@ get '/merchants/:id' do
   @merchant = Merchant.find_by_id(params['id'])
   erb :'merchants/show'
 end
+
+post '/merchants/:id/update' do
+  merchant = Merchant.new(params)
+  merchant.update
+  redirect "/merchants/#{merchant.id}"
+end
+
+get '/merchants/:id/edit' do
+  @merchant = Merchant.find_by_id(params['id'])
+  erb :'merchants/edit'
+end
