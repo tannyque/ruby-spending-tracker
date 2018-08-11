@@ -2,9 +2,9 @@ require_relative '../db/sql_runner'
 
 class Tag
   def initialize(options)
-    @id = options['id'] if options['id']
-    @category_id = options['category_id']
-    @transaction_id = options['transaction_id']
+    @id = options['id'].to_i if options['id']
+    @category_id = options['category_id'].to_i
+    @transaction_id = options['transaction_id'].to_i
   end
 
   def save

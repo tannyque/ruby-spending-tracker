@@ -19,6 +19,14 @@ get '/transactions/new/:user_id' do
 end
 
 post '/transactions/new/:user_id' do
-  Transaction.new(params).save
+  transaction = Transaction.new(params)
+  transaction.save
+  # Form returns an array of hashes with he key = category_id
+  params['tags'].each do |pair|
+    Tag.new(
+      'transaction_id' => transaction.id,
+      'category_id' => pair['id']
+    ).save
+  end
   redirect "/users/#{params['user_id']}"
 end
