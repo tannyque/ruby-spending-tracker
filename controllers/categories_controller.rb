@@ -16,6 +16,12 @@ get '/categories/:id/edit' do
   erb :'categories/edit'
 end
 
+post '/categories/:id/delete' do
+  category = Category.find_by_id(params['id'])
+  category.delete
+  redirect '/categories'
+end
+
 post '/categories/:id/update' do
   category = Category.new(params)
   category.update

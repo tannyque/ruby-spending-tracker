@@ -1,3 +1,7 @@
 <h1><%= @category.name %></h1>
 
 <a href="/categories/<%= @category.id %>/edit">Edit</a>
+
+<form action="/categories/<%= @category.id %>/delete" method="post">
+  <button type="submit" name="delete">Delete</button>
+</form>
