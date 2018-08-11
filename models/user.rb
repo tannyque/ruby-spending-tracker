@@ -1,4 +1,5 @@
 require_relative '../db/sql_runner'
+require_relative 'transaction'
 
 class User
   attr_reader :id, :name
@@ -11,6 +12,14 @@ class User
   def save
     sql = 'INSERT INTO users (name) VALUES ($1) RETURNING id'
     @id = SqlRunner.run(sql, [@name]).first['id']
+  end
+
+  def transactions
+    sql = 'SELECT * FROM transactions WHERE user_id = $1'
+    values = [@id]
+    SqlRunner
+      .run(sql, values)
+      .map { |transaction| Transaction.new(transaction) }
   end
 
   def self.all

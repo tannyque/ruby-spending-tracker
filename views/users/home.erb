@@ -1,0 +1,9 @@
+<h1><%= @user.name %></h1>
+
+<h3>All Transactions</h3>
+
+<% @transactions.each do |transaction| %>
+  <p>Merchant: <%= transaction.merchant.name %></p>
+  <p>Amount: £<%= transaction.amount %></p>
+  <hr>
+<% end %>
