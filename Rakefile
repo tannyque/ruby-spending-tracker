@@ -22,11 +22,11 @@ end
 
 namespace :db do
   task :open do
-    sh 'psql -d spending-tracker'
+    sh 'psql -d spending-tracker-4567'
   end
 
   task :build do
-    sh 'psql -d spending-tracker -f db/spending-tracker.sql'
+    sh 'psql -d spending-tracker-4567 -f db/spending-tracker.sql'
   end
 
   task :seed do
