@@ -20,6 +20,12 @@ class Category
       .map { |category| Category.new(category) }
   end
 
+  def self.find_by_id(id)
+    sql = 'SELECT * FROM categories WHERE id = $1'
+    result = SqlRunner.run(sql, [id])
+    result.count.zero? ? nil : Category.new(result.first)
+  end
+
   def self.delete_all
     SqlRunner.run('DELETE FROM categories')
   end
