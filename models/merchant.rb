@@ -20,6 +20,12 @@ class Merchant
       .map { |merchant| Merchant.new(merchant) }
   end
 
+  def self.find_by_id(id)
+    sql = 'SELECT * FROM merchants WHERE id = $1'
+    result = SqlRunner.run(sql, [id])
+    result.count.zero? ? nil : Merchant.new(result.first)
+  end
+
   def self.delete_all
     SqlRunner.run('DELETE FROM merchants')
   end
