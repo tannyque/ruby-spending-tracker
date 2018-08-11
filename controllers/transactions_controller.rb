@@ -21,14 +21,9 @@ end
 post '/transactions/new/:user_id' do
   transaction = Transaction.new(params)
   transaction.save
-  # Form returns an array of hashes with he key = category_id
-  params['tags'].each do |pair|
-    Tag.new(
-      'transaction_id' => transaction.id,
-      'category_id' => pair['id']
-    ).save
-  end
-  redirect "/users/#{params['user_id']}"
+  Tag.build_from_array(params['tags'], transaction) if params['tags']
+
+  redirect "/transactions/#{transaction.id}"
 end
 
 get '/transactions/edit/:id' do
@@ -42,8 +37,14 @@ post '/transactions/edit/:id' do
   transaction = Transaction.new(params)
   transaction.user_id = Transaction.find_by_id(params['id']).user_id
   transaction.update
-  redirect "/transactions/#{transaction.id}"
+  transaction.delete_all_tags
+  Tag.build_from_array(params['tags'], transaction) if params['tags']
 
-  # Delete all current tags on transaction and rebuild list
-  
+  redirect "/transactions/#{transaction.id}"
+end
+
+post '/transactions/:id/delete' do
+  transaction = Transaction.find_by_id(params['id'])
+  transaction.delete
+  redirect "/users/#{transaction.user.id}"
 end

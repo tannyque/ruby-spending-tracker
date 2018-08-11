@@ -25,10 +25,25 @@ class Transaction
     SqlRunner.run(sql, values)
   end
 
+  def delete
+    SqlRunner.run('DELETE FROM transactions WHERE id = $1', [@id])
+  end
+
   def merchant
     sql = 'SELECT * FROM merchants WHERE id = $1'
     result = SqlRunner.run(sql, [@merchant_id])
     Merchant.new(result.first)
+  end
+
+  def user
+    sql = 'SELECT * FROM users WHERE id = $1'
+    result = SqlRunner.run(sql, [@user_id])
+    User.new(result.first)
+  end
+
+  def delete_all_tags
+    sql = 'DELETE FROM tags WHERE transaction_id = $1'
+    SqlRunner.run(sql, [@id])
   end
 
   def self.all

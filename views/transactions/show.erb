@@ -1,7 +1,8 @@
-<h1>Transaction id: <%= @transaction.id %></h1>
+<h1>Transaction ID: <%= @transaction.id %></h1>
 
 <p>Merchant: <a href="/merchants/<%= @transaction.merchant.id %>"><%= @transaction.merchant.name %></a> </p>
 <p>Amount: £<%= @transaction.amount %></p>
+<p>User: <%= @transaction.user.name.capitalize %></p>
 
 <h4>Tags</h4>
 <% @tags.each do |tag| %>
@@ -9,3 +10,7 @@
 <% end %>
 
 <a href="/transactions/edit/<%= @transaction.id %>">Edit transaction</a>
+
+<form action="/transactions/<%= @transaction.id %>/delete" method="post">
+  <button type="submit">Delte transaction</button>
+</form>

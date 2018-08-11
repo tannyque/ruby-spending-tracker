@@ -28,6 +28,15 @@ class Tag
       .map { |tag| Tag.new(tag) }
   end
 
+  def self.build_from_array(tags, transaction)
+    tags.each do |pair|
+      Tag.new(
+        'transaction_id' => transaction.id,
+        'category_id' => pair['id']
+      ).save
+    end
+  end
+
   def self.by_transaction(id)
     sql = 'SELECT * FROM tags WHERE transaction_id = $1'
     SqlRunner

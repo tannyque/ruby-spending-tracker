@@ -9,7 +9,12 @@ require_relative 'models/user'
 
 also_reload('models/*') if development?
 
+helpers do
+  def current_user_id
+    User.all.first.id
+  end
+end
+
 get '/' do
-  @users = User.all
   erb :home
 end
