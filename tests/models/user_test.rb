@@ -1,7 +1,7 @@
 require_relative '../test_helper'
 require_relative '../../models/user'
 
-class UsersTest < MiniTest::Test
+class UserTest < MiniTest::Test
   def setup
     @user1 = User.new('name' => 'Robert')
   end
@@ -11,6 +11,6 @@ class UsersTest < MiniTest::Test
   end
 
   def test_unsaved_user_has_nil_id
-    assert_equal(nil, @user1.id)
+    assert_nil(@user1.id)
   end
 end

@@ -1,6 +1,12 @@
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS categories;
 
 CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255)
+);
+
+CREATE TABLE categories (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255)
 );

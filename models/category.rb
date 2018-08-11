@@ -1,6 +1,6 @@
 require_relative '../db/sql_runner'
 
-class User
+class Category
   attr_reader :id, :name
 
   def initialize(options)
@@ -9,11 +9,11 @@ class User
   end
 
   def save
-    sql = 'INSERT INTO users (name) VALUES ($1) RETURNING id'
+    sql = 'INSERT INTO categories (name) VALUES ($1) RETURNING id'
     @id = SqlRunner.run(sql, [@name]).first['id']
   end
 
   def self.delete_all
-    SqlRunner.run('DELETE FROM users')
+    SqlRunner.run('DELETE FROM categories')
   end
 end
