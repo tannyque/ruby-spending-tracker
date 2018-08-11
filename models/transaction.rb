@@ -30,6 +30,13 @@ class Transaction
       .map { |transaction| Transaction.new(transaction) }
   end
 
+  def self.find_by_id(id)
+    sql = 'SELECT * FROM transactions WHERE id = $1'
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    result.count.zero? ? nil : Transaction.new(result.first)
+  end
+
   def self.delete_all
     SqlRunner.run('DELETE FROM transactions')
   end

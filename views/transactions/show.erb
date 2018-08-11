@@ -1,0 +1,4 @@
+<h1>Transaction id: <%= @transaction.id %></h1>
+
+<p>Merchant: <a href="/merchants/<%= @transaction.merchant.id %>"><%= @transaction.merchant.name %></a> </p>
+<p>Amount: £<%= @transaction.amount %></p>
