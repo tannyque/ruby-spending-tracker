@@ -6,6 +6,15 @@ get '/categories' do
   erb :'categories/index'
 end
 
+get '/categories/new' do
+  erb :'categories/new'
+end
+
+post '/categories/new' do
+  Category.new(params).save
+  redirect '/categories'
+end
+
 get '/categories/:id' do
   @category = Category.find_by_id(params['id'])
   erb :'categories/show'
