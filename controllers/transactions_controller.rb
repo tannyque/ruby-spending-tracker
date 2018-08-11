@@ -30,3 +30,20 @@ post '/transactions/new/:user_id' do
   end
   redirect "/users/#{params['user_id']}"
 end
+
+get '/transactions/edit/:id' do
+  @merchants = Merchant.all
+  @categories = Category.all
+  @transaction = Transaction.find_by_id(params['id'])
+  erb :'transactions/edit'
+end
+
+post '/transactions/edit/:id' do
+  transaction = Transaction.new(params)
+  transaction.user_id = Transaction.find_by_id(params['id']).user_id
+  transaction.update
+  redirect "/transactions/#{transaction.id}"
+
+  # Delete all current tags on transaction and rebuild list
+  
+end

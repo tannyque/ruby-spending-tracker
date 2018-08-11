@@ -7,3 +7,5 @@
 <% @tags.each do |tag| %>
   <p><%= tag.category.name %></p>
 <% end %>
+
+<a href="/transactions/edit/<%= @transaction.id %>">Edit transaction</a>
