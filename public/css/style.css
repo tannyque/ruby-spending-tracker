@@ -1,23 +1,16 @@
-* {
-  font-family: 'Lora', serif;
+a:hover {
+  color: #999999;
+}
+
+a:active {
+  color: #dd0000;
+  font-size: 0.8em;
 }
 
 body {
   margin: 0 12vw;
-  background-color: #ababdf;
-}
-
-h1, h2, h3, h4, h5 {
-  font-family: 'Varela Round', sans-serif;
-  margin: 5vw 0;
-}
-
-h1 {
-  text-align: center;
-}
-
-h3 {
-  color: #666666;
+  background-image: url('/images/background.jpg');
+  background-size: 100% auto;
 }
 
 nav {
@@ -36,9 +29,14 @@ nav ul li {
 }
 
 nav ul a {
+  font-size: 0.8em;
   font-family: 'Varela Round', sans-serif;
   text-decoration: none;
   color: #ffffff;
   text-transform: uppercase;
   padding: 0 2vw;
+}
+
+button {
+  color: #000000;
 }

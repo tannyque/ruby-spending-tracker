@@ -1,0 +1,26 @@
+* {
+  font-family: 'Lora', serif;
+  color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  color: #ffffff;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Varela Round', sans-serif;
+  margin: 5vw 0;
+  color: #ffffff;
+}
+
+h1 {
+  text-align: center;
+}
+
+h3 {
+  color: #cccccc;
+}

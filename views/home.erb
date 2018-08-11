@@ -1,5 +1,3 @@
-<h1>Home</h1>
-
-<% @users.each do |user| %>
-  <p><a href="/users/<%= user.id %>"><%= user.name %></a></p>
-<% end %>
+<form class="home-button" action="/users/<%= @users.first.id %>" method="get">
+  <button type="submit" name="go-home">My account</button>
+</form>
