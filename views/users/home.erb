@@ -1,5 +1,7 @@
 <h1><%= @user.name %></h1>
 
+<a href="/transactions/new/<%= @user.id %>">New transaction</a>
+
 <h3>All Transactions</h3>
 
 <% @transactions.each do |transaction| %>

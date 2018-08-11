@@ -1,0 +1,21 @@
+<h1>New Transaction</h1>
+
+<form action="/transactions/new/<%= @user.id %>" method="post">
+  <label id="amount" for="amount">Amount</label>
+  <input type="number" name="amount" required>
+
+  <select id="merchant-select" name="merchant_id">
+    <% @merchants.each do |merchant| %>
+      <option name="merchant_id" value="<%= merchant.id %>"><%= merchant.name %></option>
+    <% end %>
+  </select>
+
+  <fieldset>
+    <legend>Transaction categories:</legend>
+    <% @categories.each do |category| %>
+      <input type="checkbox" name="tags" value="<%= category.id %>"><%= category.name %><br>
+    <% end %>
+  </fieldset>
+
+  <button type="submit" name="button">Create transaction</button>
+</form>

@@ -14,11 +14,26 @@ class Tag
     @id = SqlRunner.run(sql, values).first['id']
   end
 
+  def category
+    sql = 'SELECT * FROM categories WHERE id = $1'
+    values = [@category_id]
+    result = SqlRunner.run(sql, values)
+    result.count.zero? ? nil : Category.new(result.first)
+  end
+
   def self.all
     sql = 'SELECT * FROM tags'
     SqlRunner
       .run(sql)
       .map { |tag| Tag.new(tag) }
+  end
+
+  def self.by_transaction(id)
+    sql = 'SELECT * FROM tags WHERE transaction_id = $1'
+    SqlRunner
+      .run(sql, [id])
+      .map { |tag| Tag.new(tag) }
+
   end
 
   def self.delete_all

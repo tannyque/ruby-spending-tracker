@@ -2,3 +2,8 @@
 
 <p>Merchant: <a href="/merchants/<%= @transaction.merchant.id %>"><%= @transaction.merchant.name %></a> </p>
 <p>Amount: £<%= @transaction.amount %></p>
+
+<h4>Tags</h4>
+<% @tags.each do |tag| %>
+  <p><%= tag.category.name %></p>
+<% end %>
