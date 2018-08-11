@@ -4,4 +4,6 @@
   <p><a href="/categories/<%= category.id %>"><%= category.name %></a></p>
 <% end %>
 
-<a href="/categories/new">New category</a>
+<form action="/categories/new" method="get">
+  <button type="submit" name="button">Add a new category</button>
+</form>
