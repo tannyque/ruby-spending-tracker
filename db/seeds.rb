@@ -13,8 +13,8 @@ Category.delete_all
 User.delete_all
 Merchant.delete_all
 
-user1 = User.new('name' => 'Catherine')
-user2 = User.new('name' => 'Dave')
+user1 = User.new('name' => 'Catherine', 'budget' => 3000)
+user2 = User.new('name' => 'Dave', 'budget' => 2000)
 user1.save
 user2.save
 
@@ -25,7 +25,7 @@ Category.new('name' => 'Bills').save
 Category.new('name' => 'Food').save
 
 Merchant.new('name' => 'Costa').save
-Merchant.new('name' => 'Scotrail').save
+Merchant.new('name' => 'ScotRail').save
 Merchant.new('name' => 'British Gas').save
 Merchant.new('name' => 'Tesco').save
 Merchant.new('name' => 'Odeon Cinemas').save

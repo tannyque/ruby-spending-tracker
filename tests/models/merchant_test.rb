@@ -7,7 +7,7 @@ class MerchantTest < MiniTest::Test
   end
 
   def test_merchant_has_name
-    assert_equal('Costa Coffee', @merchant1.name)
+    assert_equal('costa coffee', @merchant1.name)
   end
 
   def test_unsaved_merchant_has_nil_id

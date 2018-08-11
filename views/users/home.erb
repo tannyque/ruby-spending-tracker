@@ -4,8 +4,6 @@
 
 <h3>All Transactions</h3>
 
-<h4>Total value: £<%= @user.transaction_value %></h4>
-
 <% @transactions.each do |transaction| %>
   <p>Merchant: <%= transaction.merchant.name.capitalize %></p>
   <p>Amount: £<%= transaction.amount %></p>
@@ -13,3 +11,5 @@
   <a href="/transactions/edit/<%= transaction.id %>">Edit transaction</a>
   <hr>
 <% end %>
+
+<h4>Total value: £<%= @user.transaction_value %></h4>

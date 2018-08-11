@@ -7,11 +7,12 @@ class User
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @name = options['name'].downcase
+    @budget = options['budget'].to_i
   end
 
   def save
-    sql = 'INSERT INTO users (name) VALUES ($1) RETURNING id'
-    @id = SqlRunner.run(sql, [@name]).first['id']
+    sql = 'INSERT INTO users (name, budget) VALUES ($1, $2) RETURNING id'
+    @id = SqlRunner.run(sql, [@name, @budget]).first['id']
   end
 
   def transactions
