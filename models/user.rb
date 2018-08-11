@@ -13,6 +13,13 @@ class User
     @id = SqlRunner.run(sql, [@name]).first['id']
   end
 
+  def self.all
+    sql = 'SELECT * FROM users'
+    SqlRunner
+      .run(sql)
+      .map { |user| User.new(user) }
+  end
+
   def self.delete_all
     SqlRunner.run('DELETE FROM users')
   end

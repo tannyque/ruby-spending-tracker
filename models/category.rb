@@ -13,6 +13,13 @@ class Category
     @id = SqlRunner.run(sql, [@name]).first['id']
   end
 
+  def self.all
+    sql = 'SELECT * FROM categories'
+    SqlRunner
+      .run(sql)
+      .map { |category| Category.new(category) }
+  end
+
   def self.delete_all
     SqlRunner.run('DELETE FROM categories')
   end
