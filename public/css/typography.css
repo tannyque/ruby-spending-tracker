@@ -9,18 +9,24 @@ a {
 
 p {
   color: #ffffff;
+  font-size: 0.8em;
 }
 
 h1, h2, h3, h4, h5 {
   font-family: 'Varela Round', sans-serif;
-  margin: 5vw 0;
   color: #ffffff;
 }
 
 h1 {
   text-align: center;
+  margin: 1em 0 2em 0;
 }
 
 h3 {
   color: #cccccc;
+  margin: 1em 0 2em 0;
+}
+
+h5 {
+  margin: 2em 0 1em 0;
 }

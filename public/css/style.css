@@ -1,5 +1,6 @@
 a {
   color: #a1d9e8;
+  padding: 0 0.6em;
   font-size: 0.7em;
   text-transform: uppercase;
 }
@@ -73,4 +74,17 @@ label {
 
 fieldset, legend {
   color: #ffffff;
+}
+
+.account-info {
+  background-color: #333333;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px #444444;
+  margin: 0 0 60px 0;
+}
+
+.account-info h3 {
+  margin: 0;
+  padding: 0;
 }
