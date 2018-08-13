@@ -1,5 +1,4 @@
-<h1><%= @user.name.capitalize %></h1>
-
+<h1>Account holder: <%= @user.name.capitalize %></h1>
 <div class="account-box">
   <div class="account-info">
     <h3>Account Info</h3>
@@ -12,34 +11,37 @@
 
   <div class="account-actions">
     <h3>Account Actions</h3>
-    <a href="/transactions/all/<%= @user.id %>">All transactions</a>
-    <a href="/transactions/new/<%= @user.id %>">New transaction</a>
+    <p><a href="/transactions/all/<%= @user.id %>">All transactions</a></p>
+    <p><a href="/transactions/new/<%= @user.id %>">New transaction</a></p>
   </div>
 </div>
 
 <hr>
 
-<h3>Recent Transactions</h3>
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Merchant</th>
-    <th>Amount</th>
-    <th>Date</th>
-    <th></th>
-  </tr>
 
-  <% @transactions.each do |transaction| %>
+<div class="transaction-box">
+  <h3>Recent Transactions</h3>
+  <table>
     <tr>
-      <td><%= transaction.id %></td>
-      <td><%= transaction.merchant.name.capitalize %></td>
-      <td>£<%= transaction.amount %></td>
-      <td><%= transaction.created_at %></td>
-      <td>
-        <form action="/transactions/<%= transaction.id %>" method="get">
-          <button type="submit">Show</button>
-        </form>
-      </td>
+      <th>ID</th>
+      <th>Merchant</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th></th>
     </tr>
-  <% end %>
-</table>
+
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.id %></td>
+        <td><%= transaction.merchant.name.capitalize %></td>
+        <td>£<%= transaction.amount %></td>
+        <td><%= transaction.created_at %></td>
+        <td>
+          <form action="/transactions/<%= transaction.id %>" method="get">
+            <button type="submit">Show</button>
+          </form>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
