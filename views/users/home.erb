@@ -6,7 +6,7 @@
   <p>Number of transactions: <%= @user.transactions.count %></p>
   <p>Initial budget: £<%= @user.budget %></p>
   <p>Total value of transactions: £<%= @user.transaction_value %></p>
-  <p>Budget remaining: £<%= @user.budget - @user.transaction_value %></p>
+  <p>Budget remaining: £<%= @user.balance %></p>
 
   <h5>Account Actions</h5>
   <a href="/transactions/new/<%= @user.id %>">New transaction</a>

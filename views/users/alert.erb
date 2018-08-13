@@ -1,0 +1,5 @@
+<h1>Balance Alert</h1>
+
+<p>Transaction number <%= @transaction.id %> at <%= @transaction.merchant.name %>
+  amounting to £<%= @transaction.amount %> has reduced your balance to
+  £<%= @user.balance %>.</p>

@@ -7,3 +7,11 @@ get '/users/:id' do
   @transactions = @user.transactions
   erb :'users/home'
 end
+
+
+get '/users/:id/alert/:transaction_id' do
+  p params
+  @user = User.find_by_id(params['id'])
+  @transaction = Transaction.find_by_id(params['transaction_id'])
+  erb :'users/alert'
+end

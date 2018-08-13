@@ -23,7 +23,11 @@ post '/transactions/new/:user_id' do
   transaction.save
   Tag.build_from_array(params['tags'], transaction) if params['tags']
 
-  redirect "/transactions/#{transaction.id}"
+  if transaction.user.balance <= 100
+    redirect "/users/#{transaction.user.id}/alert/#{transaction.id}"
+  else
+    redirect "/transactions/#{transaction.id}"
+  end
 end
 
 get '/transactions/edit/:id' do

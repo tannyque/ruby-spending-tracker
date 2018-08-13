@@ -2,7 +2,7 @@ require_relative '../db/sql_runner'
 require_relative 'transaction'
 
 class User
-  attr_reader :id, :name, :budget 
+  attr_reader :id, :name, :budget
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -25,6 +25,10 @@ class User
 
   def transaction_value
     transactions.sum(&:amount)
+  end
+
+  def balance
+    @budget - transaction_value
   end
 
   def self.all
