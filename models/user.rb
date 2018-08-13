@@ -24,7 +24,9 @@ class User
   end
 
   def transactions_by_date
-    transactions.sort_by(&:id)
+    transactions
+      .sort_by { |transaction| Time.parse(transaction.created_at) }
+      .reverse
   end
 
   def transaction_value
