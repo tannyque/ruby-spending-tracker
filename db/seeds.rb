@@ -5,7 +5,6 @@ require_relative '../models/transaction'
 require_relative '../models/tag'
 
 require 'pry-byebug'
-require 'rake'
 
 Tag.delete_all
 Transaction.delete_all
