@@ -1,12 +1,12 @@
-<h1><%= @merchant.name %></h1>
+<h1><%= @merchant.name.capitalize %></h1>
 
 <form action="/merchants/<%= @merchant.id %>/update" method="post">
   <label id="name" for="name">Name</label>
   <input type="text" name="name" value="<%= @merchant.name %>" required>
 
-  <button type="submit" name="submit">Update</button>
+  <button type="submit" name="submit">Update merchant</button>
 </form>
 
 <form action="/merchants/<%= @merchant.id %>/delete" method="post">
-  <button type="submit" name="delete">Delete</button>
+  <button class="delete" type="submit" name="delete">Delete merchant</button>
 </form>

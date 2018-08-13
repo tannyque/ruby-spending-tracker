@@ -11,6 +11,12 @@ get '/transactions/:id' do
   erb :'transactions/show'
 end
 
+get '/transactions/all/:user_id' do
+  @user = User.find_by_id(params['user_id'])
+  @transactions = @user.transactions
+  erb :'transactions/index'
+end
+
 get '/transactions/new/:user_id' do
   @user = User.find_by_id(params['user_id'])
   @merchants = Merchant.all
@@ -50,5 +56,5 @@ end
 post '/transactions/:id/delete' do
   transaction = Transaction.find_by_id(params['id'])
   transaction.delete
-  redirect "/users/#{transaction.user.id}"
+  redirect "/transactions/all/#{transaction.user.id}"
 end

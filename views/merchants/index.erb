@@ -1,7 +1,7 @@
 <h1>Merchants</h1>
 
 <% @merchants.each do |merchant| %>
-  <p><a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></p>
+  <p><a href="/merchants/<%= merchant.id %>"><%= merchant.name.capitalize %></a></p>
 <% end %>
 
 <form class="center button" action="/merchants/new" method="get">

@@ -1,16 +1,23 @@
 <h1>Transaction ID: <%= @transaction.id %></h1>
 
-<p>Merchant: <a href="/merchants/<%= @transaction.merchant.id %>"><%= @transaction.merchant.name %></a> </p>
+<p>Merchant: <a href="/merchants/<%= @transaction.merchant.id %>"><%= @transaction.merchant.name.capitalize %></a> </p>
 <p>Amount: £<%= @transaction.amount %></p>
 <p>User: <%= @transaction.user.name.capitalize %></p>
 
 <h4>Tags</h4>
 <% @tags.each do |tag| %>
-  <p><%= tag.category.name %></p>
+  <p><%= tag.category.name.capitalize %></p>
 <% end %>
 
-<a href="/transactions/edit/<%= @transaction.id %>">Edit transaction</a>
+<div class="button-box">
+  <form action="/transactions/edit/<%= @transaction.id %>" method="get">
+    <button type="submit">Edit transaction</button>
+  </form>
 
-<form action="/transactions/<%= @transaction.id %>/delete" method="post">
-  <button type="submit">Delte transaction</button>
-</form>
+  <form action="/transactions/<%= @transaction.id %>/delete" method="post">
+    <button class="delete" type="submit">Delete transaction</button>
+  </form>
+</div>
+
+
+<a href="/transactions/all/<%= @transaction.user_id %>">All transactions</a>

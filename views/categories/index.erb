@@ -1,9 +1,9 @@
 <h1>Categories</h1>
 
 <% @categories.each do |category| %>
-  <p><a href="/categories/<%= category.id %>"><%= category.name %></a></p>
+  <p><a href="/categories/<%= category.id %>"><%= category.name.capitalize %></a></p>
 <% end %>
 
-<form action="/categories/new" method="get">
+<form class="center" action="/categories/new" method="get">
   <button type="submit" name="button">Add a new category</button>
 </form>

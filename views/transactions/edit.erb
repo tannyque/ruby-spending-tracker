@@ -23,3 +23,7 @@
 
   <button type="submit" name="button">Update transaction</button>
 </form>
+
+<form action="/transactions/<%= @transaction.id %>/delete" method="post">
+  <button class="delete" type="submit">Delete transaction</button>
+</form>

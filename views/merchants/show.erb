@@ -1,7 +1,11 @@
 <h1><%= @merchant.name.capitalize %></h1>
 
-<a href="/merchants/<%= @merchant.id %>/edit">Edit merchant</a>
+<div class="button-box">
+  <form action="/merchants/<%= @merchant.id %>/edit" method="get">
+    <button type="submit"name="button">Edit merchant</button>
+  </form>
 
-<form action="/merchants/<%= @merchant.id %>/delete" method="post">
-  <button type="submit"name="button">Delete merchant</button>
-</form>
+  <form action="/merchants/<%= @merchant.id %>/delete" method="post">
+    <button class="delete" type="submit"name="button">Delete merchant</button>
+  </form>
+</div>

@@ -1,3 +1,11 @@
 <h1><%= @category.name.capitalize %></h1>
 
-<a href="/categories/<%= @category.id %>/edit">Edit category</a>
+<div class="button-box">
+  <form action="/categories/<%= @category.id %>/edit" method="get">
+    <button type="submit" name="edit">Edit category</button>
+  </form>
+
+  <form action="/categories/<%= @category.id %>/delete" method="post">
+    <button class="delete" type="submit" name="delete">Delete category</button>
+  </form>
+</div>

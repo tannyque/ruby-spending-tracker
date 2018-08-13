@@ -1,24 +1,22 @@
 <h1><%= @user.name.capitalize %></h1>
 
-<div class="account-info">
-  <h3>Account Info</h3>
-  <p>Name: <%= @user.name.capitalize %></p>
-  <p>Number of transactions: <%= @user.transactions.count %></p>
-  <p>Initial budget: £<%= @user.budget %></p>
-  <p>Total value of transactions: £<%= @user.transaction_value %></p>
-  <p>Budget remaining: £<%= @user.balance %></p>
+<div class="account-box">
+  <div class="account-info">
+    <h3>Account Info</h3>
+    <p>Name: <%= @user.name.capitalize %></p>
+    <p>Number of transactions: <%= @user.transactions.count %></p>
+    <p>Initial budget: £<%= @user.budget %></p>
+    <p>Total value of transactions: £<%= @user.transaction_value %></p>
+    <p>Budget remaining: £<%= @user.balance %></p>
+  </div>
 
-  <h5>Account Actions</h5>
-  <a href="/transactions/new/<%= @user.id %>">New transaction</a>
+  <div class="account-actions">
+    <h3>Account Actions</h3>
+    <a href="/transactions/all/<%= @user.id %>">All transactions</a>
+    <a href="/transactions/new/<%= @user.id %>">New transaction</a>
+  </div>
 </div>
 
-<h3>All Transactions</h3>
-
 <hr>
-<% @transactions.each do |transaction| %>
-  <p>Merchant: <%= transaction.merchant.name.capitalize %></p>
-  <p>Amount: £<%= transaction.amount %></p>
-  <a href="/transactions/<%= transaction.id %>">Show details</a>
-  <a href="/transactions/edit/<%= transaction.id %>">Edit transaction</a>
-  <hr>
-<% end %>
+
+<h1>Recent Transactions</h1>
