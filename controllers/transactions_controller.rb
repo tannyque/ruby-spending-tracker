@@ -26,6 +26,7 @@ end
 
 post '/transactions/new/:user_id' do
   transaction = Transaction.new(params)
+  transaction.created_at = Time.now.strftime('%Y-%m-%d %H:%M:%S')
   transaction.save
   Tag.build_from_array(params['tags'], transaction) if params['tags']
 
@@ -46,6 +47,7 @@ end
 post '/transactions/edit/:id' do
   transaction = Transaction.new(params)
   transaction.user_id = Transaction.find_by_id(params['id']).user_id
+  transaction.created_at = Time.now.strftime('%Y-%m-%d %H:%M:%S')
   transaction.update
   transaction.delete_all_tags
   Tag.build_from_array(params['tags'], transaction) if params['tags']

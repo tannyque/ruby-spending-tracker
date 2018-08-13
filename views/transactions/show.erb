@@ -3,6 +3,7 @@
 <p>Merchant: <a href="/merchants/<%= @transaction.merchant.id %>"><%= @transaction.merchant.name.capitalize %></a> </p>
 <p>Amount: £<%= @transaction.amount %></p>
 <p>User: <%= @transaction.user.name.capitalize %></p>
+<p>Created at: <%= @transaction.created_at %></p>
 
 <h4>Tags</h4>
 <% @tags.each do |tag| %>

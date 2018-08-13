@@ -23,6 +23,10 @@ class User
       .map { |transaction| Transaction.new(transaction) }
   end
 
+  def transactions_by_date
+    transactions.sort_by(&:id)
+  end
+
   def transaction_value
     transactions.sum(&:amount)
   end
