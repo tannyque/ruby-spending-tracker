@@ -5,11 +5,11 @@ class SqlRunner
     begin
       if ENV['RACK_ENV'] == 'production'
         db = PG.connect(
-          dbname: 'dbv1bgpr44ld3j',
-          host: 'ec2-54-221-210-97.compute-1.amazonaws.com',
-          user: 'vdydvtyrhegmyf',
-          port: '5432',
-          password: 'fb640d0cff20a29918202762c9ece99739e338625bcb206f1384e00703e29115'
+          dbname: ENV['DB_NAME'],
+          host: ENV['DB_HOST'],
+          user: ENV['DB_USER'],
+          port: ENV['DB_PORT'],
+          password: ENV['DB_PASSWORD']
         )
       else
         db = PG.connect(dbname: 'spending-tracker-4567')
