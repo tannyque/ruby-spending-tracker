@@ -13,7 +13,14 @@ nav ul {
 }
 
 @media only screen and (max-width:800px) {
- .hideable { display: none; }
+ .hideable {
+   display: none;
+ }
+
+ .main-container {
+   margin: 0;
+   width: 100%;
+ }
 }
 
 nav ul li {
