@@ -1,22 +1,29 @@
 <h1>New Transaction</h1>
 
-<form action="/transactions/new/<%= @user.id %>" method="post">
-  <label id="amount" for="amount">Amount: </label>
-  <input type="number" name="amount" required>
-  <br>
-  <label for="merchant-select">Please select a merchant: </label>
-  <select id="merchant-select" name="merchant_id">
-    <% @merchants.each do |merchant| %>
-      <option name="merchant_id" value="<%= merchant.id %>"><%= merchant.name.capitalize %></option>
-    <% end %>
-  </select>
-  <br>
-  <fieldset>
-    <legend>Transaction categories:</legend>
-    <% @categories.each do |category| %>
-      <input type="checkbox" name="tags[][id]" value="<%= category.id %>"><%= category.name.capitalize %><br>
-    <% end %>
-  </fieldset>
-
-  <button class="center" type="submit" name="button">Create transaction</button>
+<form class="main-form" action="/transactions/new/<%= @user.id %>" method="post">
+  <ul>
+    <li>
+      <label id="amount" for="amount">Amount: </label>
+      <input type="number" name="amount" required>
+    </li>
+    <li>
+      <label for="merchant-select">Please select a merchant: </label>
+      <select id="merchant-select" name="merchant_id">
+        <% @merchants.each do |merchant| %>
+          <option name="merchant_id" value="<%= merchant.id %>"><%= merchant.name.capitalize %></option>
+        <% end %>
+      </select>
+    </li>
+    <li>
+      <fieldset>
+        <legend>Transaction categories:</legend>
+        <% @categories.each do |category| %>
+          <input type="checkbox" name="tags[][id]" value="<%= category.id %>"><%= category.name.capitalize %> <br>
+        <% end %>
+      </fieldset>
+    </li>
+    <li class="center">
+      <button class="center" type="submit" name="button">Create transaction</button>
+    </li>
+  </ul>
 </form>

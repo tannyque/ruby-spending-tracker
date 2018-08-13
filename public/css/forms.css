@@ -1,0 +1,30 @@
+.main-form {
+  width: 50%;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.main-form ul {
+  padding: 0;
+  list-style: none;
+}
+
+.main-form ul li {
+  margin: 20px 0;
+}
+
+.main-form label {
+  font-weight: bold;
+}
+
+.main-form input {
+  width: 100%;
+}
+
+.main-form legend {
+  font-weight: bold;
+}
+
+.main-form fieldset input {
+  width: auto;
+}

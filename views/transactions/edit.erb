@@ -1,29 +1,36 @@
 <h1>Edit Transaction</h1>
 
-<form action="/transactions/edit/<%= @transaction.id %>" method="post">
-  <label id="amount" for="amount">Amount</label>
-  <input type="number" name="amount" value="<%= @transaction.amount %>" required>
-
-  <select id="merchant-select" name="merchant_id">
-    <% @merchants.each do |merchant| %>
-      <option name="merchant_id" value="<%= merchant.id %>"><%= merchant.name.capitalize %></option>
-    <% end %>
-  </select>
-
-  <fieldset>
-    <legend>Transaction categories:</legend>
-    <% @categories.each do |category| %>
-      <% if @transaction.category?(category) %>
-        <input type="checkbox" name="tags[][id]" value="<%= category.id %>" checked><%= category.name.capitalize %><br>
-      <% else %>
-        <input type="checkbox" name="tags[][id]" value="<%= category.id %>"><%= category.name.capitalize %><br>
-      <% end %>
-    <% end %>
-  </fieldset>
-
-  <button type="submit" name="button">Update transaction</button>
+<form  class="main-form" action="/transactions/edit/<%= @transaction.id %>" method="post">
+  <ul>
+    <li>
+      <label id="amount" for="amount">Amount</label>
+      <input type="number" name="amount" value="<%= @transaction.amount %>" required>
+    </li>
+    <li>
+      <select id="merchant-select" name="merchant_id">
+        <% @merchants.each do |merchant| %>
+          <option name="merchant_id" value="<%= merchant.id %>"><%= merchant.name.capitalize %></option>
+        <% end %>
+      </select>
+    </li>
+    <li>
+      <fieldset>
+        <legend>Transaction categories:</legend>
+        <% @categories.each do |category| %>
+          <% if @transaction.category?(category) %>
+            <input type="checkbox" name="tags[][id]" value="<%= category.id %>" checked><%= category.name.capitalize %><br>
+          <% else %>
+            <input type="checkbox" name="tags[][id]" value="<%= category.id %>"><%= category.name.capitalize %><br>
+          <% end %>
+        <% end %>
+      </fieldset>
+    </li>
+    <li class="center">
+      <button type="submit" name="button">Update transaction</button>
+    </li>
+  </ul>
 </form>
 
-<form action="/transactions/<%= @transaction.id %>/delete" method="post">
+<form class="center" action="/transactions/<%= @transaction.id %>/delete" method="post">
   <button class="delete" type="submit">Delete transaction</button>
 </form>
