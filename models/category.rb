@@ -41,4 +41,8 @@ class Category
   def self.delete_all
     SqlRunner.run('DELETE FROM categories')
   end
+
+  def ==(object)
+    object.class == self.class && object.id == self.id
+  end
 end

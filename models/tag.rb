@@ -1,6 +1,8 @@
 require_relative '../db/sql_runner'
 
 class Tag
+attr_reader :id, :category_id, :transaction_id
+
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @category_id = options['category_id'].to_i

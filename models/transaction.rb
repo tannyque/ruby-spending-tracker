@@ -35,10 +35,25 @@ class Transaction
     Merchant.new(result.first)
   end
 
+  def categories
+    tags.map { |tag| Category.find_by_id(tag.category_id) }
+  end
+
+  def tags
+    sql = 'SELECT * FROM tags WHERE transaction_id = $1'
+    SqlRunner
+      .run(sql, [@id])
+      .map { |tag| Tag.new(tag) }
+  end
+
   def user
     sql = 'SELECT * FROM users WHERE id = $1'
     result = SqlRunner.run(sql, [@user_id])
     User.new(result.first)
+  end
+
+  def category?(category)
+    categories.include?(category)
   end
 
   def delete_all_tags
