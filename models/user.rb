@@ -35,6 +35,17 @@ class User
       .select { |transaction| Time.parse(transaction.created_at).month == month_no}
   end
 
+  def transactions_by_category(category_id)
+    result = []
+    transactions.each do |transaction|
+      transaction.categories.each do |category|
+        result << transaction if category.id == category_id.to_i
+      end
+    end
+
+    result
+  end
+
   def transaction_value
     transactions.sum(&:amount)
   end

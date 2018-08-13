@@ -14,6 +14,7 @@
     <p><a href="/transactions/all/<%= @user.id %>">View all transactions</a></p>
     <p><a href="/transactions/new/<%= @user.id %>">Add a new transaction</a></p>
 
+    <br>
     <fieldset>
       <form action="/transactions/<%= @user.id %>/month" method="get">
         <label id="month" for="month">Filter transactions by month: </label>
@@ -21,6 +22,19 @@
         <select name="month">
           <% Date::MONTHNAMES.each do |month| %>
             <option value="<%= month %>"><%= month %></option>
+          <% end %>
+        </select>
+        <button type="submit" name="button">Go</button>
+      </form>
+    </fieldset>
+    <br>
+    <fieldset>
+      <form action="/transactions/<%= @user.id %>/category" method="get">
+        <label id="category" for="category">Filter transactions by category: </label>
+        <br>
+        <select name="category">
+          <% Category.all.each do |category| %>
+            <option value="<%= category.id %>"><%= category.name.capitalize %></option>
           <% end %>
         </select>
         <button type="submit" name="button">Go</button>

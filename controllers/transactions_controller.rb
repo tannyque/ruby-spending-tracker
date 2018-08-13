@@ -1,5 +1,5 @@
 require 'sinatra'
-
+require 'pry-byebug'
 require_relative '../models/transaction'
 require_relative '../models/merchant'
 require_relative '../models/category'
@@ -15,6 +15,13 @@ get '/transactions/:user_id/month' do
   @user = User.find_by_id(params['user_id'])
   @month = params['month']
   @transactions = @user.transactions_by_month(@month)
+  erb :'transactions/index'
+end
+
+get '/transactions/:user_id/category' do
+  @user = User.find_by_id(params['user_id'])
+  @category = params['category']
+  @transactions = @user.transactions_by_category(params['category'])
   erb :'transactions/index'
 end
 
