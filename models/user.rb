@@ -29,6 +29,12 @@ class User
       .reverse
   end
 
+  def transactions_by_month(month)
+    month_no = Date::MONTHNAMES.index(month.capitalize)
+    transactions
+      .select { |transaction| Time.parse(transaction.created_at).month == month_no}
+  end
+
   def transaction_value
     transactions.sum(&:amount)
   end

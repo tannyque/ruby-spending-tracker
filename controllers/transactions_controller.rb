@@ -11,6 +11,13 @@ get '/transactions/:id' do
   erb :'transactions/show'
 end
 
+get '/transactions/:user_id/month' do
+  @user = User.find_by_id(params['user_id'])
+  @month = params['month']
+  @transactions = @user.transactions_by_month(@month)
+  erb :'transactions/index'
+end
+
 get '/transactions/all/:user_id' do
   @user = User.find_by_id(params['user_id'])
   @transactions = @user.transactions
