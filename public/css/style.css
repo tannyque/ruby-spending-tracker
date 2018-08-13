@@ -85,12 +85,13 @@ button.delete {
 
 .account-box {
   display: flex;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-around;
   padding: 20px 0 30px 0;
 }
 
 .account-info {
-  width: 50%;
+  width: 40%;
   padding: 0 20px 20px 20px;
   margin-right: 5px;
   border: 1px solid #eeeeee;
@@ -98,7 +99,7 @@ button.delete {
 }
 
 .account-actions {
-  width: 50%;
+  width: 40%;
   padding: 0 20px 20px 20px;
   margin-left: 5px;
   border: 1px solid #eeeeee;
@@ -144,7 +145,9 @@ input {
 .transaction-box {
   padding: 10px;
   margin: 0 auto;
-  display: flex
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .transaction-info {
