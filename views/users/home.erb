@@ -6,7 +6,7 @@
     <p>Number of transactions: <%= @user.transactions.count %></p>
     <p>Initial budget: £<%= @user.budget %></p>
     <p>Total value of transactions: £<%= @user.transaction_value %></p>
-    <p>Budget remaining: £<%= @user.balance %></p>
+    <p class="bold">Budget remaining: £<%= @user.balance %></p>
   </div>
 
   <div class="account-actions">
@@ -15,7 +15,7 @@
     <p><a href="/transactions/new/<%= @user.id %>">Add a new transaction</a></p>
 
     <form action="/transactions/<%= @user.id %>/month" method="get">
-      <label id="month" for="month">Filter transactions by month</label>
+      <label id="month" for="month">Filter transactions by month: </label>
       <input type="text" name="month">
 
       <button type="submit" name="button">Go</button>

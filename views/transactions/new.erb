@@ -6,14 +6,14 @@
 
   <select id="merchant-select" name="merchant_id">
     <% @merchants.each do |merchant| %>
-      <option name="merchant_id" value="<%= merchant.id %>"><%= merchant.name %></option>
+      <option name="merchant_id" value="<%= merchant.id %>"><%= merchant.name.capitalize %></option>
     <% end %>
   </select>
 
   <fieldset>
     <legend>Transaction categories:</legend>
     <% @categories.each do |category| %>
-      <input type="checkbox" name="tags[][id]" value="<%= category.id %>"><%= category.name %><br>
+      <input type="checkbox" name="tags[][id]" value="<%= category.id %>"><%= category.name.capitalize %><br>
     <% end %>
   </fieldset>
 
