@@ -1,6 +1,8 @@
 # Spending Tracker App
 
 ## Info
+A live version of the app can be viewed here https://spending-tracker-app.herokuapp.com/
+
 Trello board at https://trello.com/b/cuYq4gas/spending-tracker
 
 ## Up and running
