@@ -72,5 +72,9 @@
         </td>
       </tr>
     <% end %>
+
+    <tr class="center bold">
+      <td colspan="5">Transactions total: £<%= @transactions.sum(&:amount) %></td>
+    </tr>
   </table>
 </div>
