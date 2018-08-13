@@ -1,13 +1,12 @@
 <h1><%= @category.name.capitalize %></h1>
 
 <form action="/categories/<%= @category.id %>/update" method="post">
-  <label id="name" for="name">Name</label>
+  <label id="name" for="name">Name: </label>
   <input type="text" name="name" value="<%= @category.name %>" required>
-
+  <br>
   <button type="submit" name="submit">Update category</button>
 </form>
 
 <form action="/categories/<%= @category.id %>/delete" method="post">
   <button class="delete" type="submit" name="delete">Delete category</button>
 </form>
-  
