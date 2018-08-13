@@ -10,6 +10,11 @@ body {
   padding: 10% 2% 2% 2%;
 }
 
+a {
+  color: #5fc7ed;
+  text-decoration: none;
+}
+
 nav {
   position: fixed;
   width: 100%;
@@ -133,4 +138,21 @@ footer {
 footer p {
   color: #cccccc;
   font-size: 10px;
+}
+
+.merchant-index {
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.merchant-box {
+  margin: 20px;
+}
+
+.merchant-box img {
+  width: 100px;
+  padding: 10px;
+  margin: 0;
 }

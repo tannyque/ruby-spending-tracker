@@ -1,21 +1,22 @@
 require_relative '../db/sql_runner'
 
 class Merchant
-  attr_reader :id, :name
+  attr_reader :id, :name, :image
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @name = options['name'].downcase
+    @image = options['image']
   end
 
   def save
-    sql = 'INSERT INTO merchants (name) VALUES ($1) RETURNING id'
-    @id = SqlRunner.run(sql, [@name]).first['id']
+    sql = 'INSERT INTO merchants (name, image) VALUES ($1, $2) RETURNING id'
+    @id = SqlRunner.run(sql, [@name, @image]).first['id']
   end
 
   def update
-    sql = 'UPDATE merchants SET name = $1 WHERE id = $2'
-    values = [@name, @id]
+    sql = 'UPDATE merchants SET (name, image) = ($1, $2) WHERE id = $3'
+    values = [@name, @image, @id]
     SqlRunner.run(sql, values)
   end
 

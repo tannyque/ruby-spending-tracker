@@ -21,6 +21,7 @@
         <br>
         <select name="month">
           <% Date::MONTHNAMES.each do |month| %>
+            <% next if month.nil? %>
             <option value="<%= month %>"><%= month %></option>
           <% end %>
         </select>

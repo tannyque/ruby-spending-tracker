@@ -12,8 +12,8 @@ Category.delete_all
 User.delete_all
 Merchant.delete_all
 
-user1 = User.new('name' => 'Catherine', 'budget' => 3000)
-user2 = User.new('name' => 'Dave', 'budget' => 2000)
+user1 = User.new('name' => 'Catherine', 'budget' => 7000)
+user2 = User.new('name' => 'Dave', 'budget' => 5000)
 user1.save
 user2.save
 
@@ -23,11 +23,13 @@ Category.new('name' => 'Entertainment').save
 Category.new('name' => 'Bills').save
 Category.new('name' => 'Food').save
 
-Merchant.new('name' => 'Costa').save
-Merchant.new('name' => 'ScotRail').save
-Merchant.new('name' => 'British Gas').save
-Merchant.new('name' => 'Tesco').save
-Merchant.new('name' => 'Odeon Cinemas').save
+Merchant.new('name' => 'Costa', 'image' => '/images/costa.jpeg').save
+Merchant.new('name' => 'ScotRail', 'image' => '/images/scotrail.png').save
+Merchant.new('name' => 'British Gas', 'image' => '/images/british-gas.jpg').save
+Merchant.new('name' => 'Tesco', 'image' => '/images/tesco.jpg').save
+Merchant.new('name' => 'Odeon Cinemas', 'image' => '/images/odeon.png').save
+Merchant.new('name' => 'Amazon', 'image' => '/images/amazon.jpg').save
+Merchant.new('name' => 'Ebay', 'image' => '/images/ebay.png').save
 
 merchants = Merchant.all
 categories = Category.all
@@ -39,7 +41,7 @@ def random_time
   Time.at((end_date.to_time.to_f - start_date.to_time.to_f) * rand + start_date.to_time.to_f)
 end
 
-20.times do
+100.times do
   transaction = Transaction.new(
     'amount' => rand(1..100),
     'user_id' => user1.id,
@@ -51,7 +53,7 @@ end
 
 transactions = Transaction.all
 
-40.times do
+100.times do
   tag = Tag.new(
     'category_id' => categories.sample.id,
     'transaction_id' => transactions.sample.id

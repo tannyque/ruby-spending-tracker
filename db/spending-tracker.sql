@@ -17,7 +17,8 @@ CREATE TABLE categories (
 
 CREATE TABLE merchants (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(255)
+  name VARCHAR(255),
+  image VARCHAR(255)
 );
 
 CREATE TABLE transactions (

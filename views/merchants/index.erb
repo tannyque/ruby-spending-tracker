@@ -1,8 +1,12 @@
 <h1>Merchants</h1>
+<div class="merchant-index">
+  <% @merchants.each do |merchant| %>
+    <div class="merchant-box">
+      <a href="/merchants/<%= merchant.id %>"><img src="<%= merchant.image %>" alt=""></a>
+    </div>
+  <% end %>
+</div>
 
-<% @merchants.each do |merchant| %>
-  <p><a href="/merchants/<%= merchant.id %>"><%= merchant.name.capitalize %></a></p>
-<% end %>
 
 <form class="center button" action="/merchants/new" method="get">
   <button type="submit" name="button">Add a new merchant</button>
