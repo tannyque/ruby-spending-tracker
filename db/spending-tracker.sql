@@ -24,7 +24,8 @@ CREATE TABLE transactions (
   id SERIAL PRIMARY KEY,
   amount INT,
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
-  merchant_id INT REFERENCES merchants(id) ON DELETE CASCADE
+  merchant_id INT REFERENCES merchants(id) ON DELETE CASCADE,
+  created_at TIMESTAMP
 );
 
 CREATE TABLE tags (
