@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'pry-byebug'
 require_relative '../models/transaction'
 require_relative '../models/merchant'
 require_relative '../models/category'

@@ -4,8 +4,6 @@ require_relative '../models/merchant'
 require_relative '../models/transaction'
 require_relative '../models/tag'
 
-require 'pry-byebug'
-
 Tag.delete_all
 Transaction.delete_all
 Category.delete_all
@@ -60,6 +58,3 @@ transactions = Transaction.all
   )
   tag.save
 end
-
-binding.pry
-nil
