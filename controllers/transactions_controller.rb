@@ -26,7 +26,7 @@ end
 
 get '/transactions/all/:user_id' do
   @user = User.find_by_id(params['user_id'])
-  @transactions = @user.transactions
+  @transactions = @user.transactions.reverse
   erb :'transactions/index'
 end
 
@@ -60,7 +60,7 @@ end
 post '/transactions/edit/:id' do
   transaction = Transaction.new(params)
   transaction.user_id = Transaction.find_by_id(params['id']).user_id
-  transaction.created_at = Time.now.strftime('%Y-%m-%d %H:%M:%S')
+  transaction.created_at = Transaction.find_by_id(params['id']).created_at
   transaction.update
   transaction.delete_all_tags
   Tag.build_from_array(params['tags'], transaction) if params['tags']

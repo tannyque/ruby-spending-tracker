@@ -58,7 +58,7 @@ class Transaction
   end
 
   def pretty_date
-    @created_at.strftime('%a %d %b %Y at %H:%M')
+    @created_at.strftime('%a %e %b %Y at %H:%M')
   end
 
   def delete_all_tags

@@ -9,7 +9,11 @@
     <li>
       <select id="merchant-select" name="merchant_id">
         <% @merchants.each do |merchant| %>
-          <option name="merchant_id" value="<%= merchant.id %>"><%= merchant.name.capitalize %></option>
+          <% if merchant.id == @transaction.merchant_id %>
+            <option name="merchant_id" value="<%= merchant.id %>" selected="selected"><%= merchant.name.capitalize %></option>
+          <% else %>
+            <option name="merchant_id" value="<%= merchant.id %>"><%= merchant.name.capitalize %></option>
+          <% end %>
         <% end %>
       </select>
     </li>
