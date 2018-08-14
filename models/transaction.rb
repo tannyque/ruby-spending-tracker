@@ -1,4 +1,5 @@
 require_relative '../db/sql_runner'
+require 'time'
 
 class Transaction
   attr_reader :id, :amount, :merchant_id
