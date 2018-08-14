@@ -27,7 +27,7 @@ nav ul {
 
 nav ul li {
   float: right;
-  padding-top: 18px;
+  padding-top: 14px;
   padding-right: 10px;
 }
 
@@ -46,11 +46,13 @@ nav a:hover {
 
 .logo {
   padding-left: 10px;
+  padding-top: 0px;
 }
 
 .logo li {
   float: left;
   padding-top: 8px;
+  margin: 0;
 }
 
 .logo img {
