@@ -1,14 +1,18 @@
-require 'pg'
-
 # In production will pull DB connection credentials from Rack environment
 # variables, in development/test defaults to local connection.
-class SqlRunner
+module SqlRunner
+  require 'pg'
+
   def self.run(sql, values = [])
-    db = ENV['RACK_ENV'] == 'production' ? connect_production : connect_local
+    db = connect_to_db
     db.prepare('query', sql)
     db.exec_prepared('query', values)
   ensure
     db&.close
+  end
+
+  def self.connect_to_db
+    ENV['RACK_ENV'] == 'production' ? connect_production : connect_local
   end
 
   def self.connect_local
