@@ -80,6 +80,13 @@ button.delete {
   background-color: #dd0000;
 }
 
+.big-button button {
+  font-size: 18px;
+  padding: 8px 13px;
+  margin: 30px 0;
+  border-radius: 25px;
+}
+
 .button-box {
   text-align: center;
 }
@@ -95,6 +102,15 @@ button.delete {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 20px 0 30px 0;
+}
+
+.account-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.account-box li {
+  margin: 5px 0;
 }
 
 .account-info {

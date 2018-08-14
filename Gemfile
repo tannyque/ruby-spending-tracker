@@ -11,7 +11,8 @@ source 'https://rubygems.org' do
     gem 'sinatra-contrib', '~> 1.4', '>= 1.4.6'
   end
 
-  group :testing do
+  group :test do
     gem 'capybara', '~> 2.7', '>= 2.7.1'
+    gem 'capybara_minitest_spec', '~> 1.0', '>= 1.0.7'
   end
 end

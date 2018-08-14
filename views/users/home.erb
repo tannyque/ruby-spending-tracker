@@ -2,13 +2,14 @@
 <div class="account-box">
   <div class="account-info">
     <h3>Account Info</h3>
-    <p>Name: <%= @user.name.capitalize %></p>
-    <p>Number of transactions: <%= @user.transactions.count %></p>
-    <p>Initial budget: £<%= @user.budget %></p>
-    <p>Total value of transactions: £<%= @user.transaction_value %></p>
-    <hr>
-    <p class="bold">Budget remaining: £<%= @user.balance %></p>
-    <hr>
+    <ul>
+      <li>Name: <%= @user.name.capitalize %></li>
+      <li>Number of transactions: <%= @user.transactions.count %></li>
+      <li>Initial budget: £<%= @user.budget %></li>
+      <li>Total value of transactions: £<%= @user.transaction_value %></li>
+      <br>
+      <li class="bold">Budget remaining: £<%= @user.balance %></li>
+    </ul>
 
     <br>
     <form class="center" action="/" method="get">
@@ -18,15 +19,18 @@
 
   <div class="account-actions">
     <h3>Account Actions</h3>
-    <p><a href="/transactions/all/<%= @user.id %>">View all transactions</a></p>
-    <p><a href="/transactions/new/<%= @user.id %>">Add a new transaction</a></p>
-    <p><a href="/merchants">View all merchants</a></p>
-    <p><a href="/categories %>">View all categories</a></p>
+    <ul>
+      <li class="bold "><a href="/transactions/new/<%= @user.id %>">Add a new transaction</a></li>
+      <br>
+      <li><a href="/transactions/all/<%= @user.id %>">View all transactions</a></li>
+      <li><a href="/merchants">View all merchants</a></li>
+      <li><a href="/categories %>">View all categories</a></li>
+    </ul>
 
     <br>
     <fieldset>
       <form action="/transactions/<%= @user.id %>/month" method="get">
-        <label id="month" for="month">Filter transactions by month: </label>
+        <label id="month" for="month">Show all transactions for the month: </label>
         <br>
         <select name="month">
           <% Date::MONTHNAMES.each do |month| %>
@@ -34,20 +38,20 @@
             <option value="<%= month %>"><%= month %></option>
           <% end %>
         </select>
-        <button type="submit" name="button">Go</button>
+        <button type="submit" name="button">Go to the results page</button>
       </form>
     </fieldset>
     <br>
     <fieldset>
       <form action="/transactions/<%= @user.id %>/category" method="get">
-        <label id="category" for="category">Filter transactions by category: </label>
+        <label id="category" for="category">Show all transactions with the category: </label>
         <br>
         <select name="category">
           <% Category.all.each do |category| %>
             <option value="<%= category.id %>"><%= category.name.capitalize %></option>
           <% end %>
         </select>
-        <button type="submit" name="button">Go</button>
+        <button type="submit" name="button">Go to the results page</button>
       </form>
     </fieldset>
 
