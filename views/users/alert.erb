@@ -1,13 +1,17 @@
 <h1>Balance Alert</h1>
 
-<div class="alert-box">
-  <h4>WARNING</h4>
+<div class="alert-page">
+  <div class="alert-box">
+    <h4>WARNING</h4>
 
-  <p>Transaction number <%= @transaction.id %> made at <%= @transaction.merchant.name.capitalize %>
-    to the amount of £<%= @transaction.amount %> has reduced your balance to
-    £<%= @user.balance %>.</p>
+    <p>Transaction number <%= @transaction.id %> made at <%= @transaction.merchant.name.capitalize %>
+      to the amount of £<%= @transaction.amount %> has reduced your balance to
+      £<%= @user.balance %>.</p>
+  </div>
+
+  <ul>
+    <li><a href="/transactions/<%= @transaction.id %>">View this transaction</a></li>
+    <li><a href="/users/<%= @user.id %>">Back to your account</a></li>
+    <li><a href="/transactions/all/<%= @user.id %>">View all transactions</a></li>
+  </ul>
 </div>
-
-<p><a href="/transactions/<%= @transaction.id %>">Back to previous transaction</a></p>
-<p><a href="/users/<%= @user.id %>">Back to your account</a></p>
-<p><a href="/transactions/all/<%= @user.id %>">View all transactions</a></p>

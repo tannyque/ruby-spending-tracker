@@ -32,3 +32,12 @@
 .main-form fieldset input {
   width: auto;
 }
+
+fieldset {
+  border: 1px solid #dddddd !important;
+  border-radius: 3px;
+}
+
+select {
+  border-radius: 3px;
+}

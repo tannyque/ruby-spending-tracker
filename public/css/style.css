@@ -12,6 +12,14 @@ body {
   box-shadow: 2px 0 5px -2px #777777, -2px 0 5px -2px #777777;
 }
 
+ul {
+  list-style: none;
+}
+
+li {
+  margin: 5px 0;
+}
+
 a {
   color: #5fc7ed;
   text-decoration: none;
@@ -94,7 +102,7 @@ button.delete:hover {
 
 .big-button button {
   font-family: 'varela round' sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   padding: 8px 13px;
   margin: 30px 0;
   border-radius: 25px;
@@ -118,12 +126,7 @@ button.delete:hover {
 }
 
 .account-box ul {
-  list-style: none;
   padding: 0;
-}
-
-.account-box li {
-  margin: 5px 0;
 }
 
 .account-info {
@@ -144,6 +147,11 @@ button.delete:hover {
 
 input {
   border-radius: 3px;
+}
+
+.alert-page  {
+    width: 70%;
+    margin: 0 auto;
 }
 
 .alert-box {

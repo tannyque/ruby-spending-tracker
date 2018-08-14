@@ -8,7 +8,6 @@ get '/users/:id' do
   erb :'users/home'
 end
 
-
 get '/users/:id/alert/:transaction_id' do
   p params
   @user = User.find_by_id(params['id'])
