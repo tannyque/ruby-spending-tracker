@@ -6,7 +6,7 @@
     <p>Merchant: <a href="/merchants/<%= @transaction.merchant.id %>"><%= @transaction.merchant.name.capitalize %></a> </p>
     <p>Amount: £<%= @transaction.amount %></p>
     <p>User: <%= @transaction.user.name.capitalize %></p>
-    <p>Created at: <%= @transaction.created_at %></p>
+    <p>Created at: <%= @transaction.pretty_date %></p>
   </div>
 
   <div class="transaction-tags">

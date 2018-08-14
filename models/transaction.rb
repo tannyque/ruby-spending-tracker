@@ -9,7 +9,7 @@ class Transaction
     @amount = options['amount'].to_i
     @user_id = options['user_id'].to_i
     @merchant_id = options['merchant_id'].to_i
-    @created_at = Time.parse(options['created_at'])
+    @created_at = Time.parse(options['created_at']) if options['created_at']
   end
 
   def save
