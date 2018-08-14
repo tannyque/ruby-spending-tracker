@@ -15,14 +15,25 @@ class Transaction
   def save
     sql = 'INSERT INTO transactions (amount, user_id, merchant_id, created_at)
            VALUES ($1, $2, $3, $4) RETURNING id'
-    values = [@amount, @user_id, @merchant_id, @created_at]
+    values = [
+      @amount,
+      @user_id,
+      @merchant_id,
+      @created_at.strftime('%Y-%m-%d %H:%M:%S')
+    ]
     @id = SqlRunner.run(sql, values).first['id']
   end
 
   def update
     sql = 'UPDATE transactions SET (amount, user_id, merchant_id, created_at) =
           ($1, $2, $3, $4) WHERE id = $5'
-    values = [@amount, @user_id, @merchant_id, @created_at, @id]
+    values = [
+      @amount,
+      @user_id,
+      @merchant_id,
+      @created_at.strftime('%Y-%m-%d %H:%M:%S'),
+      @id
+    ]
     SqlRunner.run(sql, values)
   end
 

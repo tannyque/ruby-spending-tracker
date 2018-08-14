@@ -39,7 +39,7 @@ end
 
 post '/transactions/new/:user_id' do
   transaction = Transaction.new(params)
-  transaction.created_at = Time.now.strftime('%Y-%m-%d %H:%M:%S')
+  transaction.created_at = Time.now
   transaction.save
   Tag.build_from_array(params['tags'], transaction) if params['tags']
 
