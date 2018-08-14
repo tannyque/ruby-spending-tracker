@@ -3,8 +3,8 @@
 <form class="main-form" action="/transactions/new/<%= @user.id %>" method="post">
   <ul>
     <li>
-      <label id="amount" for="amount">Amount: </label>
-      <input type="number" name="amount" required>
+      <label for="amount">Amount: </label>
+      <input id="amount" type="number" name="amount" required>
     </li>
     <li>
       <label for="merchant-select">Please select a merchant: </label>
@@ -18,7 +18,8 @@
       <fieldset>
         <legend>Transaction categories:</legend>
         <% @categories.each do |category| %>
-          <input type="checkbox" name="tags[][id]" value="<%= category.id %>"><%= category.name.capitalize %> <br>
+          <input id="<%= category.name%>" type="checkbox" name="tags[][id]" value="<%= category.id %>">
+          <label for="<%= category.name %>"><%= category.name.capitalize %></label><br>
         <% end %>
       </fieldset>
     </li>

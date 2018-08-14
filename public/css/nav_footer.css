@@ -63,7 +63,15 @@ footer {
   padding: 60px 0;;
 }
 
-footer p {
+footer ul {
+  padding-right: 10px;
+  text-align: right;
+  float: right;
+  list-style: none;
   color: #cccccc;
+}
+
+footer ul li {
+  padding: 3px 0;
   font-size: 10px;
 }

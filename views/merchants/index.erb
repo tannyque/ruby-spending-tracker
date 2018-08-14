@@ -1,4 +1,9 @@
 <h1>Merchants</h1>
+
+<form class="center big-button" action="/merchants/new" method="get">
+  <button type="submit" name="button">Add a new merchant</button>
+</form>
+
 <div class="merchant-index">
   <% @merchants.each do |merchant| %>
     <div class="merchant-box">
@@ -6,8 +11,3 @@
     </div>
   <% end %>
 </div>
-
-
-<form class="center button" action="/merchants/new" method="get">
-  <button type="submit" name="button">Add a new merchant</button>
-</form>

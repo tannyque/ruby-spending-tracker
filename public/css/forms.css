@@ -25,6 +25,10 @@
   font-weight: bold;
 }
 
+.main-form label {
+  font-weight: normal;
+}
+
 .main-form fieldset input {
   width: auto;
 }
