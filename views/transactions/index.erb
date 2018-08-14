@@ -16,9 +16,13 @@
   <% @transactions.each do |transaction| %>
     <tr>
       <td><%= transaction.id %></td>
-      <td><%= transaction.merchant.name.capitalize %></td>
+      <td>
+        <a href="/merchants/<%= transaction.merchant_id %>">
+          <img class="table-image" src="<%= transaction.merchant.image %>" alt="merchant_logo">
+        </a>
+      </td>
       <td>£<%= transaction.amount %></td>
-      <td><%= transaction.created_at %></td>
+      <td><%= transaction.pretty_date %></td>
       <td>
         <form action="/transactions/<%= transaction.id %>" method="get">
           <button type="submit">Show</button>

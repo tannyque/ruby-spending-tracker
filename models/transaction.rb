@@ -57,6 +57,10 @@ class Transaction
     categories.include?(category)
   end
 
+  def pretty_date
+    @created_at.strftime('%a %d %b %Y at %H:%M')
+  end
+
   def delete_all_tags
     sql = 'DELETE FROM tags WHERE transaction_id = $1'
     SqlRunner.run(sql, [@id])
