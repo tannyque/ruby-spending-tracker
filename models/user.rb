@@ -25,14 +25,14 @@ class User
 
   def transactions_by_date
     transactions
-      .sort_by { |transaction| Time.parse(transaction.created_at) }
+      .sort_by(&:created_at)
       .reverse
   end
 
   def transactions_by_month(month)
     month_no = Date::MONTHNAMES.index(month.capitalize)
     transactions
-      .select { |transaction| Time.parse(transaction.created_at).month == month_no}
+      .select { |transaction| transaction.created_at.month == month_no }
   end
 
   def transactions_by_category(category_id)

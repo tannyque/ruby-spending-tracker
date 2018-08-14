@@ -42,6 +42,10 @@ nav a:hover {
   color: #cccccc;
 }
 
+.logo {
+  padding-left: 10px; 
+}
+
 .logo li {
   float: left;
   padding-top: 8px;
