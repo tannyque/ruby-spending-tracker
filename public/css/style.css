@@ -122,9 +122,11 @@ button.delete:hover {
 }
 
 .account-box {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-items: stretch;
   padding: 20px 0 30px 0;
 }
 
@@ -138,6 +140,7 @@ button.delete:hover {
   margin: 3px;
   border: 1px solid #eeeeee;
   border-radius: 10px;
+  flex: 1;
 }
 
 .account-actions {
@@ -146,6 +149,7 @@ button.delete:hover {
   margin: 3px;
   border: 1px solid #eeeeee;
   border-radius: 10px;
+  flex: 1;
 }
 
 input {
