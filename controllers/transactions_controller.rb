@@ -17,6 +17,12 @@ get '/transactions/:user_id/month' do
   erb :'transactions/index'
 end
 
+get '/transactions/:user_id/by_date' do
+  @user = User.find_by_id(params['user_id'])
+  @transactions = @user.transactions_by_date
+  erb :'transactions/index'
+end
+
 get '/transactions/:user_id/category' do
   @user = User.find_by_id(params['user_id'])
   @category = params['category']
