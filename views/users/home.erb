@@ -66,7 +66,7 @@
       <th>ID</th>
       <th>Merchant</th>
       <th>Amount</th>
-      <th>Tags</th>
+      <th class="hideable">Tags</th>
       <th>Date</th>
       <th></th>
     </tr>
@@ -80,7 +80,7 @@
           </a>
         </td>
         <td>£<%= transaction.amount %></td>
-        <td>
+        <td class="hideable">
           <ul>
             <% transaction.tags.each do |tag| %>
               <li><%= tag.category.name.capitalize %></li>
