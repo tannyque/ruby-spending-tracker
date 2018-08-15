@@ -56,5 +56,5 @@ transactions = Transaction.all
     'category_id' => categories.sample.id,
     'transaction_id' => transactions.sample.id
   )
-  tag.save
+  tag.save unless Tag.all.include?(tag)
 end

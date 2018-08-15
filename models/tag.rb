@@ -1,7 +1,7 @@
 require_relative '../db/sql_runner'
 
 class Tag
-attr_reader :id, :category_id, :transaction_id
+  attr_reader :id, :category_id, :transaction_id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -44,10 +44,15 @@ attr_reader :id, :category_id, :transaction_id
     SqlRunner
       .run(sql, [id])
       .map { |tag| Tag.new(tag) }
-
   end
 
   def self.delete_all
     SqlRunner.run('DELETE FROM tags')
+  end
+
+  def ==(other)
+    other.class == self.class &&
+      other.category_id == category_id &&
+      other.transaction_id == transaction_id
   end
 end
