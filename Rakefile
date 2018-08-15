@@ -11,10 +11,6 @@ namespace :test do
     t.pattern = 'tests/models/*_test.rb'
   end
 
-  Rake::TestTask.new(:integration) do |t|
-    t.pattern = 'tests/integration/*_test.rb'
-  end
-
   Rake::TestTask.new(:all) do |t|
     t.pattern = 'tests/*/*_test.rb'
   end

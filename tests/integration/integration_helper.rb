@@ -1,6 +1,9 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'capybara'
 require 'capybara/dsl'
 require 'capybara_minitest_spec'
+require 'sinatra'
 
 Capybara.app = Sinatra::Application
 
