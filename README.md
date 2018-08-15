@@ -1,5 +1,7 @@
 # Spending Tracker App
 
+![Image of Spending Tracker App](public/images/home-page.png)
+
 ## Info
 A live version of the app can be viewed here https://spending-tracker-app.herokuapp.com/
 
