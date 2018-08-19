@@ -1,4 +1,7 @@
 # Spending Tracker App
+A simple spending tracker that logs transactions with assigned merchants and
+categories. Built with Sinatra/Ruby, PostgreSQL, no ORM/ODM, plain HTML/CSS and no
+JavaScript.
 
 ![Image of Spending Tracker App](public/images/home-page.png)
 

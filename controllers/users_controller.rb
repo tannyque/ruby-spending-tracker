@@ -9,7 +9,6 @@ get '/users/:id' do
 end
 
 get '/users/:id/alert/:transaction_id' do
-  p params
   @user = User.find_by_id(params['id'])
   @transaction = Transaction.find_by_id(params['transaction_id'])
   erb :'users/alert'
